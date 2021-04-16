@@ -6,7 +6,7 @@ from models.player import *
 
 @app.route('/')
 def index():
-    pass
+    return render_template('index.html', title='Rock/Paper/Scissors')
 
 @app.route('/<player_1_gesture>/<player_2_gesture>')
 def show(player_1_gesture, player_2_gesture):
