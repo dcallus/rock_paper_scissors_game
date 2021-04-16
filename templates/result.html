@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Rock, Paper, Scissors</h1>
 {{ player_1.name }} chose {{ player_1.gesture}} <br>
 {{ player_2.name}} chose {{ player_2.gesture}} 
 
@@ -10,7 +9,7 @@
 {% if winner %}
 <b>{{ winner.name }}</b> wins with {{ winner.gesture}}!
 {% else %}
-It's a draw!
+<b>It's a draw!</b>
 {% endif %}
 </div>
 </p>
