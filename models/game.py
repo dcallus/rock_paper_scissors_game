@@ -32,6 +32,11 @@ class Game:
             elif [player_2.gesture, player_1.gesture] == game: # list = ["Rock","Scissors"]
                 self.set_the_winner(self.player_2)
                 return self.return_winner()
+
+    def activate_big_bang_mode(self):
+        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], 
+        ["Rock", "Lizard"], ["Lizard", "Spock"], ["Spock", "Scissors"], ["Scissors", "Lizard"], 
+        ["Lizard", "Paper"], ["Paper", "Spock"], ["Spock", "Rock"]]
                 
 
     
