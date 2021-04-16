@@ -16,7 +16,7 @@ class Game:
         self.winner = player
 
     def return_winner(self):
-        return f"{self.winner.name} wins"
+        return f"{self.winner.name} wins by playing {self.winner.player.gesture}"
 
     def test_result(self, player_1, player_2):
 
@@ -32,7 +32,6 @@ class Game:
             elif [player_2.gesture, player_1.gesture] == game: # list = ["Rock","Scissors"]
                 self.set_the_winner(self.player_2)
                 return self.return_winner()
-        
-        return "Please enter valid gesture"
+                
 
     
