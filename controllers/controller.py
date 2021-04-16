@@ -1,9 +1,19 @@
 from flask import render_template, redirect
 from app import app
 from models.game import *
-from models.game_play import get_results
+from models.game_play import *
+from models.player import *
 
-@app.route('/<player_1>/<player_2>')
-def show(player_1, player_2):
-    result = get_results(player_1.title(), player_2.title())
-    return result
+# @app.route('/')
+# def index():
+#     return render_template('index.html', title='Rock/Paper/Scissors', player=get_results(player_1, player_2))
+
+@app.route('/<player_1_gesture>/<player_2_gesture>')
+def show(player_1_gesture, player_2_gesture):
+    # assign gestures to players
+    player_1.set_gesture(player_1_gesture.title())
+    player_2.set_gesture(player_2_gesture.title())
+
+    # get winning player
+    player = get_results(player_1, player_2)
+    return render_template('index.html', title='Rock/Paper/Scissors', player=player)

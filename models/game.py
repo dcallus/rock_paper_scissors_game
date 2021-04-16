@@ -16,12 +16,12 @@ class Game:
         self.winner = player
 
     def return_winner(self):
-        return f"{self.winner.name} wins by playing {self.winner.gesture}"
+        return self.winner
 
     def test_result(self, player_1, player_2):
 
         if player_1.gesture == player_2.gesture:
-            return "tie"
+            return None
 
         # first checks if player_1 = game[0], then checks if player_2 = game[0]
         for game in self.win_game:   # example. win_game[0] = ["Rock","Scissors"]
