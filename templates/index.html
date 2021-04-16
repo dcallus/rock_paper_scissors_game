@@ -2,7 +2,11 @@
 
 {% block content %}
 <h1>Rock, Paper, Scissors</h1>
-{{ player.name }} wins with {{ player.gesture}}
+{% if player %}
+{{ player.name }} wins with {{ player.gesture}}!
+{% else %}
+It's a draw!
+{% endif %}
 
 {% endblock %}
 
