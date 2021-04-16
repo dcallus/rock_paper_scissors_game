@@ -16,7 +16,7 @@ class Game:
         self.winner = player
 
     def return_winner(self):
-        return f"{self.winner.name} wins by playing {self.winner.player.gesture}"
+        return f"{self.winner.name} wins by playing {self.winner.gesture}"
 
     def test_result(self, player_1, player_2):
 
