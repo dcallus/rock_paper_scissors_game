@@ -1,16 +1,13 @@
+import random
+
 class Game:
     def __init__(self, player_1, player_2):
         self.player_1 = player_1
         self.player_2 = player_2
-        
+        self.computer = None
+        self.big_bang_mode = False
 
         self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"]]
-
-        """ big bang mode:
-        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], 
-        ["Rock", "Lizard"], ["Lizard", "Spock"], ["Spock", "Scissors"], ["Scissors", "Lizard"], 
-        ["Lizard", "Paper"], ["Paper", "Spock"], ["Spock", "Rock"]]
-        """
     
     def set_the_winner(self, player):
         self.winner = player
@@ -34,9 +31,22 @@ class Game:
                 return self.return_winner()
 
     def activate_big_bang_mode(self):
-        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], 
-        ["Rock", "Lizard"], ["Lizard", "Spock"], ["Spock", "Scissors"], ["Scissors", "Lizard"], 
-        ["Lizard", "Paper"], ["Paper", "Spock"], ["Spock", "Rock"]]
-                
+        self.big_bang_mode = True
+        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], ["Lizard", "Spock"],
+        ["Spock", "Scissors"], ["Rock", "Lizard"], ["Paper", "Spock"], ["Scissors", "Lizard"], 
+        ["Lizard", "Paper"],  ["Spock", "Rock"]]
+
+    def computer_turn(self):
+        if self.big_bang_mode == False:
+            random_num = random.randint(0, 2)
+            # choose between 1 of 3 options
+            self.computer = self.win_game[random_num][0]
+        
+        elif self.big_bang_mode == True:
+            # choose between 1 of 5 options, list ordered so each selection is possible only once
+            random_num = random.randint(0, 4)
+            self.computer = self.win_game[random_num][0]
+
+
 
     
