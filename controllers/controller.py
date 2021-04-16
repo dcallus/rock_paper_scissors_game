@@ -16,4 +16,4 @@ def show(player_1_gesture, player_2_gesture):
 
     # get winning player
     winner = get_results(player_1, player_2)
-    return render_template('index.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
+    return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
