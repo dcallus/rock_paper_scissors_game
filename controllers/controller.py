@@ -4,9 +4,9 @@ from models.game import *
 from models.game_play import *
 from models.player import *
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html', title='Rock/Paper/Scissors', player=get_results(player_1, player_2))
+@app.route('/')
+def index():
+    pass
 
 @app.route('/<player_1_gesture>/<player_2_gesture>')
 def show(player_1_gesture, player_2_gesture):
@@ -15,5 +15,5 @@ def show(player_1_gesture, player_2_gesture):
     player_2.set_gesture(player_2_gesture.title())
 
     # get winning player
-    player = get_results(player_1, player_2)
-    return render_template('index.html', title='Rock/Paper/Scissors', player=player)
+    winner = get_results(player_1, player_2)
+    return render_template('index.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
