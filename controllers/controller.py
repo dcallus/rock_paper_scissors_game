@@ -4,6 +4,31 @@ from models.game import *
 from models.game_play import *
 from models.player import *
 
+def create_computer():
+    vs_computer_game = Game(player_1)
+    vs_computer_game.create_computer_player()
+    return vs_computer_game
+
+def process_form():
+    user_name = request.form['player-name']
+
+    if user_name:
+        player_1 = Player(user_name)
+    else:
+        player_1 = Player("Player")
+
+    user_choice = request.form['rps-menu']
+    player_1.set_gesture(user_choice)
+
+    vs_computer_game = create_computer()
+
+    player_2 = vs_computer_game.player_2
+
+    winner = get_results(player_1, player_2)
+
+    return (winner, player_1, player_2)
+
+
 @app.route('/')
 def index():
     return render_template('index.html', title='Rock/Paper/Scissors')
@@ -21,25 +46,6 @@ def show(player_1_gesture, player_2_gesture):
 @app.route('/play')
 def play_computer_home():
     return render_template('play_computer.html', title='Rock/Paper/Scissors')
-
-def process_form():
-    user_name = request.form['player-name']
-
-    if user_name:
-        player_1 = Player(user_name)
-    else:
-        player_1 = Player("Player")
-
-    user_choice = request.form['rps-menu']
-    player_1.set_gesture(user_choice)
-
-    vs_computer_game = Game(player_1)
-    vs_computer_game.create_computer_player()
-    player_2 = vs_computer_game.player_2
-
-    winner = get_results(player_1, player_2)
-
-    return (winner, player_1, player_2)
 
 @app.route('/play', methods=['POST'])
 def play_computer():
