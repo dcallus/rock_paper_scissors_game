@@ -30,3 +30,8 @@ h1 {
     display: inline;
     margin: 10px;  
 }
+
+.button {
+    background: red;
+    color: white;
+}
