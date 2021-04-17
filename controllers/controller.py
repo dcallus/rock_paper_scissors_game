@@ -20,9 +20,9 @@ def process_form():
 def create_computer_game(big_bang_mode=False):
     vs_computer_game = Game(player_1)
     if big_bang_mode:
-        vs_computer_game.activate_big_bang_mode()
-
-    vs_computer_game.create_computer_player()
+        vs_computer_game.create_computer_player(big_bang_mode=True)
+    else:
+        vs_computer_game.create_computer_player()
     return vs_computer_game
 
 def get_game_result(player_1, player_2):
@@ -64,8 +64,9 @@ def play_bigbang_home():
 
 @app.route('/play-bigbang', methods=['POST'])
 def play_bigbang():
-    game_data = process_form()
-    winner = (game_data[0])
-    player_1 = (game_data[1])
-    player_2 = (game_data[2])
+    player_1 = process_form()
+    vs_computer_game = create_computer_game(big_bang_mode=True)
+    player_2 = vs_computer_game.player_2
+    winner = get_game_result(player_1, player_2)
+
     return render_template('result.html', title='Rock/Paper/Scissors/Lizard/Spock', winner=winner, player_1=player_1, player_2=player_2)

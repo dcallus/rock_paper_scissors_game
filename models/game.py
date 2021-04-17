@@ -5,9 +5,10 @@ class Game:
     def __init__(self, player_1, player_2=None):
         self.player_1 = player_1
         self.player_2 = player_2
-        self.big_bang_mode = False
 
-        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"]]
+        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], ["Lizard", "Spock"],
+        ["Spock", "Scissors"], ["Rock", "Lizard"], ["Paper", "Spock"], ["Scissors", "Lizard"], 
+        ["Lizard", "Paper"],  ["Spock", "Rock"]]
     
     def set_the_winner(self, player):
         self.winner = player
@@ -26,19 +27,15 @@ class Game:
                 self.set_the_winner(player_2)
                 return self.winner
 
-    def activate_big_bang_mode(self):
-        self.big_bang_mode = True
-        self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], ["Lizard", "Spock"],
-        ["Spock", "Scissors"], ["Rock", "Lizard"], ["Paper", "Spock"], ["Scissors", "Lizard"], 
-        ["Lizard", "Paper"],  ["Spock", "Rock"]]
-
     def _set_computer_gesture(self):
-        if self.big_bang_mode == False:
-            self.player_2.gesture = random.choice(["Rock", "Paper", "Scissors"])
-        
-        elif self.big_bang_mode == True:
-            self.player_2.gesture = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
+        self.player_2.gesture = random.choice(["Rock", "Paper", "Scissors"])
+
+    def _set_computer_bigbang_gesture(self):
+        self.player_2.gesture = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
     
-    def create_computer_player(self):
+    def create_computer_player(self, big_bang_mode=False):
         self.player_2 = Player("Computer")
-        self._set_computer_gesture()
+        if big_bang_mode:
+            self._set_computer_bigbang_gesture()
+        else:
+            self._set_computer_gesture()
