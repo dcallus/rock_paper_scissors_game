@@ -1,23 +1,22 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
+<form class="rps" action="/play" method="post">
+  <div>
+    <label for="input-name">Enter your name:</label>
+    <input type="text" name="player-name" id="player-name" />
+  </div>
 
-<form class="rps" , action="/play" , method="post">
-    <div>
-        <label for="input-name">Enter your name:</label>
-        <input type="text" name="player-name" id="player-name">
-    </div>
-    <div>
-        <p>
-            <label for="rps-menu">Choose:</label>
-            <select name="rps-menu" id="rps-menu">
-                <option value="Rock">Rock</option>
-                <option value="Paper">Paper</option>
-                <option value="Scissors">Scissors</option>
-                <input type="submit" value="play">
-        </p>
-        </select>
-    </div>
+  <div>
+    <p>
+      <label for="rps-menu">Choose:</label>
+      <select name="rps-menu" id="rps-menu">
+        <option value="Rock">Rock</option>
+        <option value="Paper">Paper</option>
+        <option value="Scissors">Scissors</option>
+      </select>
+      <input type="submit" value="play" />
+    </p>
+  </div>
 
 </form>
 

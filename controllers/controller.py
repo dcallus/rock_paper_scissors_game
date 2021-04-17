@@ -27,10 +27,10 @@ def play_computer_form():
     user_name = request.form['player-name']
     user_choice = request.form['rps-menu']
 
-    player = Player(user_name)
-    player.set_gesture(user_choice)
+    player_1 = Player(user_name)
+    player_1.set_gesture(user_choice)
 
-    vs_computer_game = Game(player)
+    vs_computer_game = Game(player_1)
     vs_computer_game.create_computer_player()
     player_2 = vs_computer_game.player_2
 
