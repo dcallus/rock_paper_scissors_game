@@ -42,3 +42,11 @@ h2 {
     background: red;
     color: white;
 }
+
+a {
+    color: rgb(201, 37, 201)
+}
+
+a:hover {
+    text-decoration: None;
+}
