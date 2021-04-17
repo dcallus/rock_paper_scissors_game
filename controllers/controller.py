@@ -18,6 +18,11 @@ def show(player_1_gesture, player_2_gesture):
     winner = get_results(player_1, player_2)
     return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
 
+@app.route('/play')
+def play_computer_home():
+    return render_template('play_computer.html', title='Rock/Paper/Scissors')
+
 @app.route('/play', methods=['POST'])
-def play_computer():
+def play_computer_form():
+    
     return render_template('play_computer.html', title='Rock/Paper/Scissors')
