@@ -48,3 +48,15 @@ def play_computer():
     player_1 = (game_data[1])
     player_2 = (game_data[2])
     return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
+
+@app.route('/play-bigbang')
+def play_bigbang_home():
+    return render_template('play_bigbang.html', title='Rock/Paper/Scissors')
+
+@app.route('/play-bigbang', methods=['POST'])
+def play_bigbang():
+    game_data = process_form()
+    winner = (game_data[0])
+    player_1 = (game_data[1])
+    player_2 = (game_data[2])
+    return render_template('result.html', title='Rock/Paper/Scissors/Lizard/Spock', winner=winner, player_1=player_1, player_2=player_2)
