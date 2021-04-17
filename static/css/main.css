@@ -19,10 +19,6 @@ header > ul > li {
     padding-left: 40px;
 }
 
-#title {
-    padding-left: 20px;
-}
-
 #bigbang {
     background: linear-gradient(0, rgb(184, 25, 0), rgba(184, 25, 0, 0));
     font-family:'Courier New', Courier, monospace;
@@ -30,6 +26,7 @@ header > ul > li {
 }
 
 h1 {
+    padding-left: 20px;
     display: inline;
-    margin: 10px;
+    margin: 10px;  
 }
