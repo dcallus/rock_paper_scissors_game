@@ -1,5 +1,7 @@
 {% extends "base.html" %} {% block content %}
 <span> &#129422; Lizard &#128125; Spock</span></h1>
+
+<section class="scope" id="bigbang">
 <form class="rps" action="/play-bigbang" method="post">
   <div>
     <label for="input-name">Enter your name:</label>
@@ -23,5 +25,6 @@
 </form>
 
 {% include 'result.html' %}
+</section>
 
 {% endblock %}

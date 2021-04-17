@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+header {
+    background: linear-gradient(rgb(100, 200, 255), rgba(100, 200, 255, 0));
+    padding: 5px;
+}
+
+header > ul > li {
+    list-style-type: none;
+    display: inline;
+    padding: 10px;
+}
+
+.scope {
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+#title {
+    padding-left: 20px;
+}
+
+#bigbang {
+    background: linear-gradient(0, rgb(184, 25, 0), rgba(184, 25, 0, 0));
+    font-family:'Courier New', Courier, monospace;
+    padding-bottom: 100%;
+}
