@@ -1,7 +1,7 @@
 import random
 
 class Game:
-    def __init__(self, player_1, player_2=None, vs_computer_mode=False):
+    def __init__(self, player_1, player_2=None):
         self.player_1 = player_1
         self.player_2 = player_2
         self.computer = None
@@ -15,7 +15,7 @@ class Game:
     def return_winner(self):
         return self.winner
 
-    def _test_result(self, player_1, player_2):
+    def test_result(self, player_1, player_2):
         if player_1.gesture == player_2.gesture:
             return None
 
@@ -29,10 +29,6 @@ class Game:
                 self.set_the_winner(self.player_2)
                 return self.return_winner()
 
-    def test_result(self, player_1, player_2):
-        if vs_computer_mode:
-
-
     def activate_big_bang_mode(self):
         self.big_bang_mode = True
         self.win_game = [["Rock","Scissors"], ["Paper","Rock"], ["Scissors", "Paper"], ["Lizard", "Spock"],
@@ -43,8 +39,8 @@ class Game:
         """activates computer and gives it a gesture."""
 
         if self.big_bang_mode == False:
-            self.computer = random.choice("Rock", "Paper", "Scissors")
+            self.computer = random.choice(["Rock", "Paper", "Scissors"])
         
         elif self.big_bang_mode == True:
             # each choice has two chances of being returned (not dependent on list order)
-            self.computer = random.choice("Rock", "Paper", "Scissors", "Lizard", "Spock")
+            self.computer = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
