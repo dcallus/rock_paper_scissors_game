@@ -20,13 +20,11 @@ class Game:
         for game in self.win_game:
             if [player_1.gesture, player_2.gesture] == game: 
                 self.set_the_winner(self.player_1)
-                break
+                return self.winner
                 
             elif [player_2.gesture, player_1.gesture] == game:
                 self.set_the_winner(self.player_2)
-                break
-
-        return self.winner
+                return self.winner
 
     def activate_big_bang_mode(self):
         self.big_bang_mode = True
@@ -36,10 +34,10 @@ class Game:
 
     def _set_computer_gesture(self):
         if self.big_bang_mode == False:
-            self.player_2 = random.choice(["Rock", "Paper", "Scissors"])
+            self.player_2.gesture = random.choice(["Rock", "Paper", "Scissors"])
         
         elif self.big_bang_mode == True:
-            self.player_2 = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
+            self.player_2.gesture = random.choice(["Rock", "Paper", "Scissors", "Lizard", "Spock"])
     
     def create_computer_player(self):
         self.player_2 = Player("Computer")

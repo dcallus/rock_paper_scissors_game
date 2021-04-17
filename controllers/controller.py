@@ -32,5 +32,8 @@ def play_computer_form():
 
     vs_computer_game = Game(player)
     vs_computer_game.create_computer_player()
+    player_2 = vs_computer_game.player_2
 
-    return render_template('play_computer.html', title='Rock/Paper/Scissors')
+    winner = get_results(player_1, player_2)
+
+    return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
