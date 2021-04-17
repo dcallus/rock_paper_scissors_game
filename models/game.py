@@ -36,17 +36,20 @@ class Game:
         ["Spock", "Scissors"], ["Rock", "Lizard"], ["Paper", "Spock"], ["Scissors", "Lizard"], 
         ["Lizard", "Paper"],  ["Spock", "Rock"]]
 
-    def computer_turn(self):
+    def get_computer_gesture(self):
+        """activates computer and gives it a gesture."""
+
         if self.big_bang_mode == False:
             random_num = random.randint(0, 2)
             # choose between 1 of 3 options
             self.computer = self.win_game[random_num][0]
         
         elif self.big_bang_mode == True:
-            # choose between 1 of 5 options, list ordered so each selection is possible only once
-            random_num = random.randint(0, 4)
+            # each choice has two chances of being returned (not dependent on list order)
+            random_num = random.randint(0, 9)
             self.computer = self.win_game[random_num][0]
 
+        return self.computer
 
 
     

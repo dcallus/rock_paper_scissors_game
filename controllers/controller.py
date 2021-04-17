@@ -1,4 +1,4 @@
-from flask import render_template, redirect
+from flask import render_template, request
 from app import app
 from models.game import *
 from models.game_play import *
@@ -24,5 +24,12 @@ def play_computer_home():
 
 @app.route('/play', methods=['POST'])
 def play_computer_form():
-    
+    user_name = request.form['player-name']
+    user_choice = request.form['rps-menu']
+
+    player = Player(user_name)
+    player.set_gesture(user_choice)
+
+    vs_computer_game = Game(player, )
+
     return render_template('play_computer.html', title='Rock/Paper/Scissors')
