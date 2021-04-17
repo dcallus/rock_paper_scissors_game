@@ -42,7 +42,7 @@ def show(player_1_gesture, player_2_gesture):
 
     # get winning player
     winner = get_results(player_1, player_2)
-    return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
+    return render_template('2player.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
 
 @app.route('/play')
 def play_computer_home():
@@ -56,7 +56,7 @@ def play_computer():
     player_2 = vs_computer_game.player_2
     winner = get_game_result(player_1, player_2)
 
-    return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
+    return render_template('play_computer.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
 
 @app.route('/play-bigbang')
 def play_bigbang_home():
@@ -69,4 +69,4 @@ def play_bigbang():
     player_2 = vs_computer_game.player_2
     winner = get_game_result(player_1, player_2)
 
-    return render_template('result.html', title='Rock/Paper/Scissors/Lizard/Spock', winner=winner, player_1=player_1, player_2=player_2)
+    return render_template('play_bigbang.html', title='Rock/Paper/Scissors/Lizard/Spock', winner=winner, player_1=player_1, player_2=player_2)
