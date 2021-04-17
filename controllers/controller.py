@@ -4,11 +4,6 @@ from models.game import *
 from models.game_play import *
 from models.player import *
 
-def create_computer():
-    vs_computer_game = Game(player_1)
-    vs_computer_game.create_computer_player()
-    return vs_computer_game
-
 def process_form():
     user_name = request.form['player-name']
 
@@ -20,13 +15,19 @@ def process_form():
     user_choice = request.form['rps-menu']
     player_1.set_gesture(user_choice)
 
-    vs_computer_game = create_computer()
+    return player_1
 
-    player_2 = vs_computer_game.player_2
+def create_computer_game(big_bang_mode=False):
+    vs_computer_game = Game(player_1)
+    if big_bang_mode:
+        vs_computer_game.activate_big_bang_mode()
 
+    vs_computer_game.create_computer_player()
+    return vs_computer_game
+
+def get_game_result(player_1, player_2):
     winner = get_results(player_1, player_2)
-
-    return (winner, player_1, player_2)
+    return winner
 
 
 @app.route('/')
@@ -49,10 +50,12 @@ def play_computer_home():
 
 @app.route('/play', methods=['POST'])
 def play_computer():
-    game_data = process_form()
-    winner = (game_data[0])
-    player_1 = (game_data[1])
-    player_2 = (game_data[2])
+    player_1 = process_form()
+
+    vs_computer_game = create_computer_game()
+    player_2 = vs_computer_game.player_2
+    winner = get_game_result(player_1, player_2)
+
     return render_template('result.html', title='Rock/Paper/Scissors', winner=winner, player_1=player_1, player_2=player_2)
 
 @app.route('/play-bigbang')
