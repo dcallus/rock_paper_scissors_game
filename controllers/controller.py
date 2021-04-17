@@ -30,6 +30,6 @@ def play_computer_form():
     player = Player(user_name)
     player.set_gesture(user_choice)
 
-    vs_computer_game = Game(player, )
+    vs_computer_game = Game(player, vs_computer_mode=True)
 
     return render_template('play_computer.html', title='Rock/Paper/Scissors')

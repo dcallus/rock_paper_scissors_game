@@ -1,7 +1,7 @@
 import random
 
 class Game:
-    def __init__(self, player_1, player_2):
+    def __init__(self, player_1, player_2=None, vs_computer_mode=False):
         self.player_1 = player_1
         self.player_2 = player_2
         self.computer = None
@@ -15,20 +15,23 @@ class Game:
     def return_winner(self):
         return self.winner
 
-    def test_result(self, player_1, player_2):
-
+    def _test_result(self, player_1, player_2):
         if player_1.gesture == player_2.gesture:
             return None
 
         # first checks if player_1 = game[0], then checks if player_2 = game[0]
-        for game in self.win_game:   # example. win_game[0] = ["Rock","Scissors"]
-            if [player_1.gesture, player_2.gesture] == game:  # list = ["Rock","Scissors"]
+        for game in self.win_game:
+            if [player_1.gesture, player_2.gesture] == game: 
                 self.set_the_winner(self.player_1)
                 return self.return_winner()
                 
-            elif [player_2.gesture, player_1.gesture] == game: # list = ["Rock","Scissors"]
+            elif [player_2.gesture, player_1.gesture] == game:
                 self.set_the_winner(self.player_2)
                 return self.return_winner()
+
+    def test_result(self, player_1, player_2):
+        if vs_computer_mode:
+
 
     def activate_big_bang_mode(self):
         self.big_bang_mode = True
@@ -36,20 +39,12 @@ class Game:
         ["Spock", "Scissors"], ["Rock", "Lizard"], ["Paper", "Spock"], ["Scissors", "Lizard"], 
         ["Lizard", "Paper"],  ["Spock", "Rock"]]
 
-    def get_computer_gesture(self):
+    def set_computer_gesture(self):
         """activates computer and gives it a gesture."""
 
         if self.big_bang_mode == False:
-            random_num = random.randint(0, 2)
-            # choose between 1 of 3 options
-            self.computer = self.win_game[random_num][0]
+            self.computer = random.choice("Rock", "Paper", "Scissors")
         
         elif self.big_bang_mode == True:
             # each choice has two chances of being returned (not dependent on list order)
-            random_num = random.randint(0, 9)
-            self.computer = self.win_game[random_num][0]
-
-        return self.computer
-
-
-    
+            self.computer = random.choice("Rock", "Paper", "Scissors", "Lizard", "Spock")
