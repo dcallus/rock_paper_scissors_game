@@ -26,9 +26,16 @@ header > ul > li {
 }
 
 h1 {
+    font-size: 30px;
     padding-left: 20px;
     display: inline;
-    margin: 10px;  
+    margin: 10px;
+}
+
+h2 {
+    font-size: 30px;
+    display: inline;
+    margin: 0px;  
 }
 
 .button {
