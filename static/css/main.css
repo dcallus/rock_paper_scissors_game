@@ -15,8 +15,8 @@ header > ul > li {
 }
 
 .scope {
-    padding-top: 5px;
-    padding-left: 20px;
+    padding-top: 30px;
+    padding-left: 40px;
 }
 
 #title {
@@ -27,4 +27,9 @@ header > ul > li {
     background: linear-gradient(0, rgb(184, 25, 0), rgba(184, 25, 0, 0));
     font-family:'Courier New', Courier, monospace;
     padding-bottom: 100%;
+}
+
+h1 {
+    display: inline;
+    margin: 10px;
 }
