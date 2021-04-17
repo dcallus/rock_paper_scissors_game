@@ -19,11 +19,11 @@ class Game:
         # first checks if player_1 = game[0], then checks if player_2 = game[0]
         for game in self.win_game:
             if [player_1.gesture, player_2.gesture] == game: 
-                self.set_the_winner(self.player_1)
+                self.set_the_winner(player_1)
                 return self.winner
                 
             elif [player_2.gesture, player_1.gesture] == game:
-                self.set_the_winner(self.player_2)
+                self.set_the_winner(player_2)
                 return self.winner
 
     def activate_big_bang_mode(self):
